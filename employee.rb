@@ -40,14 +40,21 @@ class Employee
   def last_name
     @last_name.upcase
   end
+
+  # setter/writer
+  def first_name=(new_first_name)
+    @first_name = new_first_name
+  end
+
 end
 
 #manufacturer
 employee1 = Employee.new("Majora", "Carter", true, 80000)
 employee1.print_info
-
+employee1.first_name = "Mary"
 employee1.give_annual_raise
 p employee1
 
 employee2 = Employee.new("Danilo", "Campos", false, 90000)
 p "#{employee2.first_name} #{employee2.last_name}"
+
