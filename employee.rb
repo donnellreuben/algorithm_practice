@@ -15,16 +15,27 @@
 
 
 
+# employee1 = Employee.new(
+#   {
+#   :first_name => "Majora", 
+#   :last_name => "Carter", 
+#   :active => true, 
+#   :salary => 80000
+# })
+
 # cmd + a then cmd + / to unhash comments
 #factory
 class Employee 
-  def initialize(input_first_name, input_last_name, input_active, input_salary) #initialize runs automatically
-    @first_name = input_first_name
-    @last_name = input_last_name
-    @active = input_active
-    @salary = input_salary
-  end
+  attr_reader :first_name, :last_name
+  attr_writer :first_name, :last_name
 
+  def initialize(input_options) #initialize runs automatically
+    @first_name = input_options[:first_name]
+    @last_name = input_options[:last_name]
+    @active = input_options[:active]
+    @salary = input_options[:salary]
+  end
+  
   def print_info
     p "#{@first_name} #{@last_name} makes #{@salary} per year."
   end
@@ -47,14 +58,18 @@ class Employee
   end
 
 end
-
+employee1 = Employee.new(
+  {
+  :first_name => "Majora", 
+  :last_name => "Carter", 
+  :active => true, 
+  :salary => 80000
+})
 #manufacturer
-employee1 = Employee.new("Majora", "Carter", true, 80000)
-employee1.print_info
-employee1.first_name = "Mary"
-employee1.give_annual_raise
-p employee1
 
-employee2 = Employee.new("Danilo", "Campos", false, 90000)
-p "#{employee2.first_name} #{employee2.last_name}"
+employee1.print_info
+
+
+
+
 
